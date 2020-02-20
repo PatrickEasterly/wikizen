@@ -1,6 +1,5 @@
 import React from 'react';
 import History from './History'
-import Searchbar from './Searchbar'
 
 export default class Nav extends React.Component {
     constructor(props){
@@ -15,7 +14,7 @@ export default class Nav extends React.Component {
             // <div>
             <div style={{backgroundColor: 'blue'}}>
                 Nav
-                <Searchbar value={this.state.value}/>
+                {this.props.children}
                 <History />
             </div>
         )

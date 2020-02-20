@@ -84,6 +84,7 @@ onChange(e){
  */
 
 onSelect(val) {
+    this.props.selectDropDown(val);
     this.setState({
         value: val
     });
@@ -116,7 +117,7 @@ getItemValue(item){
     // You can obviously only return the Label or the component you need to show
     // In this case we are going to show the value and the label that shows in the input
     // something like "1 - Microsoft"
-    return `${item.value} - ${item.label}`;
+    return `${item.label}`;
 }
 
     render() {
