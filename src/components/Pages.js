@@ -8,9 +8,9 @@ export default class Pages extends React.Component {
 
     render() {
         return (
-            // <div>
-            <div style={{backgroundColor: 'green'}}>
-                Pages
+            <div>
+                {/* {React.createElement('HTML', {}, this.props.sections[0].section)} */}
+                <html  dangerouslySetInnerHTML={{__html: `${this.props.sections[0].section}`}} />
             </div>
         )
     }

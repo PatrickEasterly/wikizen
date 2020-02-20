@@ -1,6 +1,4 @@
 import React from 'react';
-import Pages from './Pages';
-import Tabs from './Tabs';
 
 export default class PageContainer extends React.Component {
     // eslint-disable-next-line
@@ -12,8 +10,7 @@ export default class PageContainer extends React.Component {
     render() {
         return (
             <div>
-                <Tabs />
-                <Pages />
+                {this.props.children}
             </div>
         )
     }

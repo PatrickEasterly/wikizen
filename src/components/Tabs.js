@@ -8,9 +8,9 @@ export default class Tabs extends React.Component {
 
     render() {
         return (
-            // <div>
-            <div style={{backgroundColor: 'red'}}>
-                Tabs
+            <div>
+                {/* {React.createElement('HTML', {}, this.props.sections[0].section)} */}
+                <html  dangerouslySetInnerHTML={{__html: `${this.props.sections[0].tab}`}} />
             </div>
         )
     }
