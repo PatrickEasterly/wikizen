@@ -5,6 +5,9 @@ import Searchbar from './Searchbar'
 export default class Nav extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            value: this.props.value
+        }
     }
      
     render() {
@@ -12,7 +15,7 @@ export default class Nav extends React.Component {
             // <div>
             <div style={{backgroundColor: 'blue'}}>
                 Nav
-                <Searchbar />
+                <Searchbar value={this.state.value}/>
                 <History />
             </div>
         )

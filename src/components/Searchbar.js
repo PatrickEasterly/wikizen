@@ -5,7 +5,7 @@ constructor(props, context) {
     super(props, context);
     this.state = {
         // current value of selected field 
-        value: '',
+        value: this.props.value,
         // Data that will be rendered in the autocomplete
         // As it is asynchronous, it is initially empty
         autocompleteData: []
