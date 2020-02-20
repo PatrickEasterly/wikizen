@@ -1,6 +1,6 @@
 import React from 'react';
-import History from './components/History';
-import Searchbar from './components/Searchbar';
+import History from './History'
+import Searchbar from './Searchbar'
 
 export default class Nav extends React.Component {
     constructor(props){
