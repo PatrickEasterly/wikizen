@@ -1,18 +1,16 @@
-
 <head>
-
 </head>
 <body>
     <input type="text" class="searchbox">
-
-
-
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 <script>
+
+// sends
+// https://en.wikipedia.org/w/api.php?action=opensearch&search=CHANGE***ME&format=json
+// on keypress. 
 
 $(".searchbox").autocomplete({
         source: function(request, response) {
@@ -25,7 +23,27 @@ $(".searchbox").autocomplete({
                     'search': request.term
                 },
                 success: function(data) {
-                    response(data[1]);
+                    console.log(data)
+                    /////
+                    // make an array of objects out of the response (an array of 4 arrays, with array[1] being titles and array[3] being links)
+                    let foo = [];
+                    objReturn=(titles, links)=>{
+                        for(let i = 0; i < 11; i++){
+                            foo.push({
+                                url: links[i],
+                                value: titles[i]
+                            })
+                        }
+                    }
+                    objReturn(data[1], data[3]);
+                    ////
+                    // console.log(foo)
+                    response($.map(foo, function(item) {
+                        return {
+                            url: item.url,
+                            value: item.value
+                        }
+                    }));
                 }
             });
         }
