@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import axios from 'axios';
 
 // Components
 import PageContainer from './components/PageContainer';
@@ -27,7 +27,7 @@ class App extends React.Component{
               <Searchbar 
                 value={this.state.value}
                 selection={this.props.selection}
-                selectDropDown={this._dropDownSelect}
+                selectDropDown={this._selectDropDown}
               />
             </Nav>
             <PageContainer />
@@ -35,10 +35,15 @@ class App extends React.Component{
       </div>
     );
   }
-  _dropDownSelect=(sel)=>{
+  _selectDropDown=(sel)=>{
+    console.log(sel)
     this.setState({
       selection: sel
     })
+  }
+  _getWikiPage= async (title)=>{
+    const data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+
   }
 }
 

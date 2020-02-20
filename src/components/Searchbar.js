@@ -34,6 +34,7 @@ retrieveDataAsynchronously(searchText) {
     xhr.responseType = 'json';
     xhr.onload = () => {
         let status = xhr.status;
+        // eslint-disable-next-line
         if(status == 200) {
             
             //// make an array of objects out of the response (an array of 4 arrays, with array[1] being titles and array[3] being links)
@@ -47,9 +48,9 @@ retrieveDataAsynchronously(searchText) {
             _this.setState({
                 autocompleteData: newAutocompleteData
             });
-            console.table(xhr.response)
+            // console.table(xhr.response)
         } else {
-            console.error('Cannot load data from remote source');
+            // console.error('Cannot load data from remote source');
         }
     };
     xhr.send();
@@ -66,6 +67,7 @@ onChange(e){
     this.setState({
         value: e.target.value
     });
+    // eslint-disable-next-line
     if(e.target.value != '') {
         this.retrieveDataAsynchronously(e.target.value);
     } else {
@@ -73,7 +75,7 @@ onChange(e){
             autocompleteData: []
         })
     }
-    console.log('the input text has changed to ', e.target.value);
+    // console.log('the input text has changed to ', e.target.value);
 }
 
 /*
@@ -88,7 +90,7 @@ onSelect(val) {
     this.setState({
         value: val
     });
-    console.log('Option from wikipedia selected: ', val);
+    // console.log('Option from wikipedia selected: ', val);
 }
 
 /*
