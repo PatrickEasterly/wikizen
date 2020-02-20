@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
 
-import Searchbar from './components/Searchbar';
+// Components
+import PageContainer from './components/PageContainer';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <div className="App">
       <div className="App-header">
-        <Searchbar />
+        <Nav />
+        <PageContainer />
       </div>
     </div>
   );
