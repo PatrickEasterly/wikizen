@@ -7,7 +7,8 @@ export default class Tabs extends React.Component {
 
     render() {
         return (
-            <div>
+            // <div>
+            <div style={{backgroundColor: 'red'}}>
                 Tabs
             </div>
         )
