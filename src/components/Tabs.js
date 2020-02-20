@@ -9,8 +9,12 @@ export default class Tabs extends React.Component {
     render() {
         return (
             <div>
-                {/* {React.createElement('HTML', {}, this.props.sections[0].section)} */}
-                <html  dangerouslySetInnerHTML={{__html: `${this.props.sections[0].tab}`}} />
+                {/* <html  dangerouslySetInnerHTML={{__html: `${this.props.sections[0].anchor}`}}  style={{backgroundColor: 'white'}}/> */}
+                <ul className="tabs">
+                {this.props.sections.map((section)=>{
+                    return (<li dangerouslySetInnerHTML={{__html: `${section.anchor}`}}/>)
+                })}
+                </ul>
             </div>
         )
     }

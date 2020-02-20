@@ -18,7 +18,8 @@ class App extends React.Component{
       sections: [
         {
           tab: '',
-          section: ''
+          section: '',
+          anchor: ''
         }
       ]
     }
@@ -71,7 +72,8 @@ class App extends React.Component{
     data.map((item)=>{
       sectionArr.push({
         tab: item.id,
-        section: item.text
+        section: item.text,
+        anchor: item.anchor
       })
     })
     this.setState({

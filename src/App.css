@@ -28,14 +28,17 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .autoItem {
   color: black
+}
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabs li {
+  outline: 1px solid white;
+  padding: 1px;
+  margin: 0 5px;
+  font-size: medium;
+  list-style-type: none;
 }

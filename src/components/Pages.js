@@ -9,10 +9,10 @@ export default class Pages extends React.Component {
     render() {
         return (
             <div>
-                {/* {React.createElement('HTML', {}, this.props.sections[0].section)} */}
-                <html  dangerouslySetInnerHTML={{__html: `${this.props.sections[0].section}`}} />
+                {this.props.sections.map((section)=>{
+                    return (<html dangerouslySetInnerHTML={{__html: ` ${section.anchor} \n${section.section}`}}  style={{backgroundColor: 'white'}}/>)
+                })}
             </div>
         )
     }
-        
 }
