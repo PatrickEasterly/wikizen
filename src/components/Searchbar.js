@@ -16,6 +16,7 @@ constructor(props, context) {
     this.getItemValue = this.getItemValue.bind(this);
     this.renderItem = this.renderItem.bind(this);
     this.retrieveDataAsynchronously = this.retrieveDataAsynchronously.bind(this);
+    this.myRef = React.createRef();
 }
 
 /**
@@ -90,7 +91,7 @@ onSelect(val) {
     this.setState({
         value: val
     });
-    // console.log('Option from wikipedia selected: ', val);
+    this.myRef.current.blur();
 }
 
 /*
@@ -132,6 +133,7 @@ getItemValue(item){
                     value={this.state.value}
                     onChange={this.onChange}
                     onSelect={this.onSelect}
+                    ref={this.myRef}
                 />
             </div>
         )

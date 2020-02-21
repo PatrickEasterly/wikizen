@@ -99,7 +99,6 @@ class App extends React.Component{
         anchor: item.anchor
       })
     })
-    
     sectionArr.forEach(section=>{
       // 
       // Take out all the a tags
@@ -109,9 +108,7 @@ class App extends React.Component{
       section.section = section.section.replace(/src="\/w\/extensions/g, '/src="https://simple.m.wikipedia.org/w/extensions');
       // 
       // Replace all src
-
     })
-
     // 
     // Add them to state
     this.setState({
