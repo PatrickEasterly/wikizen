@@ -61,8 +61,14 @@ class App extends React.Component{
     this._getWikiPage(sel)
   }
   _getWikiPage= async (title)=>{
-
+    // 
+    // replace all whitespace with _
     title = title.replace(/ /g, '_');
+    // 
+    // give the sections a place to live
+    let sectionArr = [];
+    // 
+    // First, try the simple wiki page. If there is no simple wiki, get the regular wiki page.
     try {
       var data = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
@@ -70,13 +76,17 @@ class App extends React.Component{
       var data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
     }
-    let sectionArr = [];
+    // 
+    // The first section appears in the lead. Put it in sections first. 
     let first = data.data.lead.sections[0];
+
     sectionArr.push({
       tab: first.id,
       section: first.text,
       anchor: data.data.lead.displaytitle
     })
+    // 
+    // Get the remaining sections
     data = data.data.remaining.sections;
     data.map((item)=>{
       sectionArr.push({
@@ -85,11 +95,29 @@ class App extends React.Component{
         anchor: item.anchor
       })
     })
+    
+    sectionArr.forEach(section=>{
+      // 
+      // Take out all the a tags
+      section.section = section.section.replace(/<\/?a[^>]*>/g, "");
+      // 
+      // Add the fill wikipedia image src
+      section.section = section.section.replace(/src="\/w\/extensions/g, '/src="https://simple.m.wikipedia.org/w/extensions');
+      // 
+      // Replace all src
+
+    })
+
+    // 
+    // Add them to state
     this.setState({
       sections: sectionArr
     })
   }
 }
 
+// 
+// Regex to remove all a tags
+// first.text = first.text.replace(/<\/?a[^>]*>/g, "");
 
 export default App;
