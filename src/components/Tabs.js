@@ -11,7 +11,12 @@ export default class Tabs extends React.Component {
             <div>
                 <ul className="tabs">
                 {this.props.sections.map((section)=>{
-                    return (<li>{section.anchor}</li>)
+                    return (<li 
+                        key={section.tab}
+                        id={section.tab}
+                        onClick={(e)=>this.props.handleTabSelect(e.target.id)}
+                            >{section.anchor}
+                            </li>)
                 })}
                 </ul>
             </div>

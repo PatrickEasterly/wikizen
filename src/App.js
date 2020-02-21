@@ -46,6 +46,7 @@ class App extends React.Component{
               <Tabs 
                 sections={this.state.sections}
                 currentTab={this.state.currentTab}
+                handleTabSelect={this._handleTabSelect}
               />
               <Pages 
                 sections={this.state.sections}
@@ -142,6 +143,12 @@ class App extends React.Component{
         currentTab: current
       })
     }
+  }
+  _handleTabSelect=(e)=>{
+    // console.log('clickd', e)
+    this.setState({
+      currentTab: e
+    })
   }
 }
 
