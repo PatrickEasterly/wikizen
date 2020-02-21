@@ -61,14 +61,23 @@ class App extends React.Component{
     this._getWikiPage(sel)
   }
   _getWikiPage= async (title)=>{
+
     title = title.replace(/ /g, '_');
-    // console.log(`new title: ${title}`);
-    // console.log(this.state.selection)
-    let data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
-    // console.table(data)
-    data = data.data.remaining.sections;
-    // data[0] = {id: 1, text: "↵<div role="note" class="hatnote navigation-not-se…ss="mw-reflink-text">[13]</span></a></span></p>↵↵", toclevel: 1, line: "Name", anchor: "Name"}
+    try {
+      var data = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+
+    } catch(err) {
+      var data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+
+    }
     let sectionArr = [];
+    let first = data.data.lead.sections[0];
+    sectionArr.push({
+      tab: first.id,
+      section: first.text,
+      anchor: data.data.lead.displaytitle
+    })
+    data = data.data.remaining.sections;
     data.map((item)=>{
       sectionArr.push({
         tab: item.id,
