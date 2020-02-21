@@ -28,7 +28,7 @@ class App extends React.Component{
 
   render () {
     return (
-      <div className="App">
+      <div className="App" onKeyDown={this._handleKeyPress} tabIndex="0">
         <div className="App-header">
             <Nav 
             value={this.state.value}
@@ -117,8 +117,31 @@ class App extends React.Component{
       sections: sectionArr
     })
   }
-  _moveLeft=()=>{
-
+  _handleKeyPress=(event)=>{
+    if(event.keyCode === 37){
+      // do left
+      const max = this.state.sections.length;
+      let current = this.state.currentTab;
+      if(current===0){
+        current = max;
+      }
+      current--;
+      this.setState({
+        currentTab: current
+      })
+    }
+    if(event.keyCode === 39){
+      // do right
+      const max = this.state.sections.length;
+      let current = this.state.currentTab;
+      current++;
+      if(current===max){
+        current = 0
+      }
+      this.setState({
+        currentTab: current
+      })
+    }
   }
 }
 
