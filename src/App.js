@@ -13,7 +13,8 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      value: null,
+      // value: null,
+      currentTab: 0,
       selection: null,
       sections: [
         {
@@ -44,9 +45,11 @@ class App extends React.Component{
             >
               <Tabs 
                 sections={this.state.sections}
+                currentTab={this.state.currentTab}
               />
               <Pages 
                 sections={this.state.sections}
+                currentTab={this.state.currentTab}
               />
             </PageContainer>
         </div>
@@ -114,10 +117,9 @@ class App extends React.Component{
       sections: sectionArr
     })
   }
-}
+  _moveLeft=()=>{
 
-// 
-// Regex to remove all a tags
-// first.text = first.text.replace(/<\/?a[^>]*>/g, "");
+  }
+}
 
 export default App;
