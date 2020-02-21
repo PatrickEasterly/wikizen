@@ -1545,3 +1545,7 @@ table#mw-prefixindex-nav-table {
 #coll-create_a_book {
 	display: none;
 }
+/* This kills the highlighting around the selected tabindex */
+[tabindex] {
+	outline: none;
+}
