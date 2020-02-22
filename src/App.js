@@ -71,13 +71,14 @@ class App extends React.Component{
     // 
     // give the sections a place to live
     let sectionArr = [];
+    let data;
     // 
     // First, try the simple wiki page. If there is no simple wiki, get the regular wiki page.
     try {
-      var data = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+      data = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
     } catch(err) {
-      var data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+      data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
     }
     // 
@@ -96,7 +97,7 @@ class App extends React.Component{
       sectionArr.push({
         tab: item.id,
         section: item.text,
-        anchor: item.anchor
+        anchor: item.line
       })
     })
     sectionArr.forEach(section=>{
