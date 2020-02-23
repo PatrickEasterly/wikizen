@@ -1,5 +1,9 @@
 #bootstrapno {
-	
+
+}
+
+.inline-end {
+	padding-inline-end: 40px;
 }
 
 .App {
@@ -9,12 +13,6 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -36,9 +34,21 @@
   color: black
 }
 .tabs {
+  padding-inline-end: 40px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
+
+
+.tabContain {
+	padding-top: 5px;
+	/* width: 80%; */
+	/* overflow: auto; */
+}
+
+
 .tabs li {
   outline: 1px solid white;
   padding: 1px;

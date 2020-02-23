@@ -5,19 +5,36 @@ export default class Tabs extends React.Component {
     // eslint-disable-next-line
     constructor(props) {
         super(props);
+        this.state = {
+            selected: this.props.currentTab
+        }
     }
 
     render() {
         return (
-            <div>
+            <div className="tabContain">
                 <ul className="tabs">
                 {this.props.sections.map((section)=>{
+                    let selected;
+                    let autofocus;
+                    if(section.tab === this.props.currentTab) {
+                        selected = "primary"
+                        autofocus="autofocus"
+                    } else {
+                        selected = "secondary"
+                        autofocus=""
+                    }
                     return (<Button 
-                        variant="secondary"
+                        
                         key={section.tab}
+                        variant={selected}
+                        autofocus={autofocus}
                         id={section.tab}
-                        onClick={(e)=>this.props.handleTabSelect(e.target.id)}
-                            >{section.anchor}
+                        onClick={(e)=>{
+                            
+                            this.props.handleTabSelect(e.target.id)}
+                        }
+                            >{section.anchor}{section.id}
                             </Button>)
                 })}
                 </ul>
