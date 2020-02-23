@@ -58,9 +58,11 @@ class App extends React.Component{
     );
   }
   _selectDropDown=(sel)=>{
-    console.log(sel)
+    // 
+    // Set the selection state; set the current tab to 0
     this.setState({
-      selection: sel
+      selection: sel,
+      currentTab: 0
     })
     this._getWikiPage(sel)
   }
@@ -71,14 +73,13 @@ class App extends React.Component{
     // 
     // give the sections a place to live
     let sectionArr = [];
-    let data;
     // 
     // First, try the simple wiki page. If there is no simple wiki, get the regular wiki page.
     try {
-      data = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+      var data = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
     } catch(err) {
-      data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+      var data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
     }
     // 
@@ -97,7 +98,7 @@ class App extends React.Component{
       sectionArr.push({
         tab: item.id,
         section: item.text,
-        anchor: item.line
+        anchor: item.anchor
       })
     })
     sectionArr.forEach(section=>{
