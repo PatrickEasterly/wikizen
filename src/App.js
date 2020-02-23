@@ -71,6 +71,11 @@ class App extends React.Component{
       </div>
     );
   }
+  _reBlank=()=>{
+    this.setState({
+      blank: true
+    })
+  }
   _onBlank=()=>{
     this.setState({
       blank: false
