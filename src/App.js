@@ -7,6 +7,7 @@ import Nav from './components/Nav';
 import Searchbar from './components/Searchbar';
 import Tabs from './components/Tabs';
 import Pages from './components/Pages';
+// import TabTest from './components/TabTest'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -31,7 +32,7 @@ class App extends React.Component{
   render () {
     return (
       <div className="App" onKeyDown={this._handleKeyPress} tabIndex="0">
-        <div className="App-header">
+        {/* <div className="App-header"> */}
             <Nav 
             value={this.state.value}
             selection={this.state.selection}
@@ -42,6 +43,7 @@ class App extends React.Component{
                 selectDropDown={this._selectDropDown}
               />
             </Nav>
+            {/* <TabTest /> */}
             <PageContainer 
               sections={this.state.sections}
             >
@@ -55,7 +57,7 @@ class App extends React.Component{
                 currentTab={this.state.currentTab}
               />
             </PageContainer>
-        </div>
+        {/* </div> */}
       </div>
     );
   }

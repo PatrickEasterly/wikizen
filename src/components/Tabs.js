@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from 'react-bootstrap';
 
 export default class Tabs extends React.Component {
     // eslint-disable-next-line
@@ -11,12 +12,13 @@ export default class Tabs extends React.Component {
             <div>
                 <ul className="tabs">
                 {this.props.sections.map((section)=>{
-                    return (<li 
+                    return (<Button 
+                        variant="secondary"
                         key={section.tab}
                         id={section.tab}
                         onClick={(e)=>this.props.handleTabSelect(e.target.id)}
                             >{section.anchor}
-                            </li>)
+                            </Button>)
                 })}
                 </ul>
             </div>
