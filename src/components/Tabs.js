@@ -31,10 +31,10 @@ export default class Tabs extends React.Component {
                         autofocus={autofocus}
                         id={section.tab}
                         onClick={(e)=>{
-                            
+
                             this.props.handleTabSelect(e.target.id)}
                         }
-                            >{section.anchor}{section.id}
+                            >{section.anchor.split('_').join(' ')}
                             </Button>)
                 })}
                 </ul>

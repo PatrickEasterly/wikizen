@@ -1,4 +1,6 @@
 import React from 'react';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
 
 export default class PageContainer extends React.Component {
     // eslint-disable-next-line
@@ -9,9 +11,13 @@ export default class PageContainer extends React.Component {
     }
     render() {
         return (
-            <div>
-                {this.props.children}
-            </div>
+            <Jumbotron fluid>
+                <Container>
+                    <div className="thePages">
+                        {this.props.children}
+                    </div>
+                </Container>
+            </Jumbotron>
         )
     }
 }

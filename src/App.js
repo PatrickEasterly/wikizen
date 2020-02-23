@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Components
 import PageContainer from './components/PageContainer';
-import Nav from './components/Nav';
+import Navbar from './components/Nav';
 import Searchbar from './components/Searchbar';
 import Tabs from './components/Tabs';
 import Pages from './components/Pages';
@@ -40,7 +40,7 @@ class App extends React.Component{
     return (
       <div className="App" onKeyDown={this._handleKeyPress} tabIndex="0" ref={this.newRef}>
         {/* <div className="App-header"> */}
-            <Nav 
+            <Navbar 
             value={this.state.value}
             selection={this.state.selection}
             >
@@ -49,7 +49,7 @@ class App extends React.Component{
                 selection={this.props.selection}
                 selectDropDown={this._selectDropDown}
               />
-            </Nav>
+            </Navbar>
             {/* <TabTest /> */}
             <PageContainer 
               sections={this.state.sections}

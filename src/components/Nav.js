@@ -1,7 +1,8 @@
 import React from 'react';
-import History from './History'
+import History from './History';
+import Nav from 'react-bootstrap/Nav';
 
-export default class Nav extends React.Component {
+export default class Navbar extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -12,11 +13,10 @@ export default class Nav extends React.Component {
     render() {
         return (
             // <div>
-            <div style={{backgroundColor: 'blue'}}>
-                Nav
+            <Nav className="theNavBar" /*style={{backgroundColor: 'blue'}}*/>
                 {this.props.children}
                 <History />
-            </div>
+            </Nav>
         )
     }
 }

@@ -1,5 +1,19 @@
 #bootstrapno {
+	padding: 5vh 5vh;
+}
+#bootstrapno h1 {
+	text-align: center;
+}
+#bootstrapno body {
+	background-color: #e9ecef;
+}
 
+.theNavBar {
+	/* height: 10vh; */
+}
+
+.thePages {
+	/* height: 90vh; */
 }
 
 .inline-end {
@@ -8,7 +22,11 @@
 }
 
 .App {
+	min-height: 100vh;
+	background-color: #282c34;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -17,7 +35,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -42,6 +59,9 @@
   width: 100%;
 }
 
+.tabs * {
+	margin: 2px;
+}
 
 .tabContain {
 	padding-top: 5px;
