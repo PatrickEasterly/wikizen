@@ -27,11 +27,18 @@ class App extends React.Component{
         }
       ]
     }
+    this.newRef = React.createRef();
+    
   }
+  
+    componentDidUpdate(){
+        this.newRef.current.focus();
+        console.log('updated')
+    }
 
   render () {
     return (
-      <div className="App" onKeyDown={this._handleKeyPress} tabIndex="0">
+      <div className="App" onKeyDown={this._handleKeyPress} tabIndex="0" ref={this.newRef}>
         {/* <div className="App-header"> */}
             <Nav 
             value={this.state.value}

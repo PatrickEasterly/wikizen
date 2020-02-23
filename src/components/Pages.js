@@ -4,12 +4,12 @@ export default class Pages extends React.Component {
     // eslint-disable-next-line
     constructor(props) {
         super(props);
-        this.newRef = React.createRef();
+        // this.newRef = React.createRef();
     }
-    componentDidUpdate(){
-        this.newRef.current.focus();
-        console.log('updated')
-    }
+    // componentDidUpdate(){
+    //     this.newRef.current.focus();
+    //     console.log('updated')
+    // }
 
     render() {
         return (
