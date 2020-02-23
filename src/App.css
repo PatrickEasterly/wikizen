@@ -4,6 +4,7 @@
 
 .inline-end {
 	padding-inline-end: 40px;
+	overflow: hidden;
 }
 
 .App {

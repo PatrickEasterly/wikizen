@@ -23,10 +23,11 @@ export default class Pages extends React.Component {
 
             // </div>
             
-            <ul className="inline-end">
-                <html id="bootstrapno" tabIndex='0' ref={this.newRef} dangerouslySetInnerHTML={{__html: ` ${this.props.sections[this.props.currentTab].anchor} \n${this.props.sections[this.props.currentTab].section}`}}  style={{backgroundColor: 'black'}}/>
-            
+            <div>
+                <ul className="inline-end" tabIndex='0' ref={this.newRef}>
+                <html id="bootstrapno" dangerouslySetInnerHTML={{__html: ` ${this.props.sections[this.props.currentTab].anchor} \n${this.props.sections[this.props.currentTab].section}`}}  style={{backgroundColor: 'black'}}/>
             </ul>
+            </div>
 
         )
     }
