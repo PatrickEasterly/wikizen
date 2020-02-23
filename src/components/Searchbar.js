@@ -88,6 +88,7 @@ onChange(e){
 
 onSelect(val) {
     this.props.selectDropDown(val);
+    this.props.unBlank();
     this.setState({
         value: val
     });

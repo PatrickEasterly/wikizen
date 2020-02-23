@@ -6,14 +6,18 @@ export default class Tabs extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected: this.props.currentTab
+            selected: this.props.currentTab,
+            blank: this.props.blank,
         }
     }
 
     render() {
         return (
             <div className="tabContain">
-                <ul className="tabs">
+
+                <div hidden={this.props.blank ? '' : 'hidden'}>hide me</div>
+
+                <ul className="tabs" hidden={this.props.blank ? 'hidden' : ''}>
                 {this.props.sections.map((section)=>{
                     let selected;
                     let autofocus;
@@ -24,18 +28,19 @@ export default class Tabs extends React.Component {
                         selected = "secondary"
                         autofocus=""
                     }
-                    return (<Button 
-                        
-                        key={section.tab}
-                        variant={selected}
-                        autofocus={autofocus}
-                        id={section.tab}
-                        onClick={(e)=>{
+                    return (
+                        <Button 
+                            key={section.tab}
+                            variant={selected}
+                            autofocus={autofocus}
+                            id={section.tab}
+                            onClick={(e)=>{
 
-                            this.props.handleTabSelect(e.target.id)}
-                        }
-                            >{section.anchor.split('_').join(' ')}
-                            </Button>)
+                                this.props.handleTabSelect(e.target.id)}
+                            }
+                                >{section.anchor.split('_').join(' ')}
+                        </Button>
+                    )
                 })}
                 </ul>
             </div>

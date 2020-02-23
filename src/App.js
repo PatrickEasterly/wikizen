@@ -19,6 +19,7 @@ class App extends React.Component{
       // value: null,
       currentTab: 0,
       selection: null,
+      blank: true,
       sections: [
         {
           tab: '',
@@ -48,6 +49,7 @@ class App extends React.Component{
                 value={this.state.value}
                 selection={this.props.selection}
                 selectDropDown={this._selectDropDown}
+                unBlank={this._onBlank}
               />
             </Navbar>
             {/* <TabTest /> */}
@@ -58,6 +60,7 @@ class App extends React.Component{
                 sections={this.state.sections}
                 currentTab={this.state.currentTab}
                 handleTabSelect={this._handleTabSelect}
+                blank={this.state.blank}
               />
               <Pages 
                 sections={this.state.sections}
@@ -67,6 +70,11 @@ class App extends React.Component{
         {/* </div> */}
       </div>
     );
+  }
+  _onBlank=()=>{
+    this.setState({
+      blank: false
+    })
   }
   _selectDropDown=(sel)=>{
     // 
