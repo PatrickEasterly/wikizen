@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import axios from 'axios';
 
 // Components
@@ -8,6 +7,9 @@ import Nav from './components/Nav';
 import Searchbar from './components/Searchbar';
 import Tabs from './components/Tabs';
 import Pages from './components/Pages';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
 
 class App extends React.Component{
   constructor(props){
