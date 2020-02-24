@@ -26,9 +26,9 @@ export default class Navbar extends React.Component {
                     </Col>
                     <Col className="buttons" xs lg="3">
                         <Row className="justify-content-md-center">
-                            <Col>
+                            {/* <Col>
                                 <Button variant="success">Press f</Button>
-                            </Col>
+                            </Col> */}
                             <Col>
                                 <Button variant="light">Simple</Button>
                             </Col>
