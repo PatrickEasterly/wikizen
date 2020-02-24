@@ -14,8 +14,16 @@ export default class Tabs extends React.Component {
     render() {
         return (
             <div className="tabContain">
-
-                <div hidden={this.props.blank ? '' : 'hidden'}>hide me</div>
+                {/* This is the div that displays before a search is entered */}
+                <div hidden={this.props.blank ? '' : 'hidden'}>
+                    <h1 className="justify-content-center">Wikizen</h1>
+                    <hr></hr>
+                    <h3 className="justify-content-center">
+                        Enter a search term to see the wikipedia page. 
+                        <br/>
+                        Click the Simple/Standard button to toggle between the simple version and the standard version of the page.
+                    </h3>
+                </div>
 
                 <ul className="tabs" hidden={this.props.blank ? 'hidden' : ''}>
                 {this.props.sections.map((section)=>{

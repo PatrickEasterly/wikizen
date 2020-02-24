@@ -14,7 +14,7 @@ export default class Navbar extends React.Component {
     }
      
     render() {
-        let simple = this.props.isSimple===0 ? 'Simple' : 'Standard';
+        let simple = this.props.isSimple===0 ? 'Standard' : 'Simple';
         return (
             <Container className="theNavBar" >
                 <Row className="justify-content-md-center">
