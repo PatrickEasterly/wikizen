@@ -95,19 +95,24 @@ class App extends React.Component{
     // 
     // replace all whitespace with _
     title = title.replace(/ /g, '_');
-    // 
-    // give the sections a place to live
-    let sectionArr = [];
+    
+    let data;
     // 
     // First, try the simple wiki page. If there is no simple wiki, get the regular wiki page.
     try {
-      var data = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+      data = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
     } catch(err) {
-      var data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+      data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
     }
+    this._modifyWikiData(data);
+  }
+  _modifyWikiData(data) {
     // 
+    // give the sections a place to live
+    let sectionArr = [];
+     // 
     // The first section appears in the lead. Put it in sections first. 
     let first = data.data.lead.sections[0];
 
