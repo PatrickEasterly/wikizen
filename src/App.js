@@ -16,7 +16,7 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      // value: null,
+      value: '',
       currentTab: 0,
       selection: null,
       blank: true,
@@ -45,10 +45,10 @@ class App extends React.Component{
     
   }
   
-    componentDidUpdate(){
-        this.newRef.current.focus();
-        // console.log('updated')
-    }
+    // componentDidUpdate(){
+    //     // console.log('updated')
+    // }
+    
 
   render () {
     return (
@@ -62,10 +62,12 @@ class App extends React.Component{
             isSimple={this.state.isSimple}
             >
               <Searchbar 
+              updateFocus={this._updateFocus}
                 value={this.state.value}
                 selection={this.props.selection}
                 selectDropDown={this._selectDropDown}
                 unBlank={this._onBlank}
+                handleType={this._handleType}
               />
             </Navbar>
             {/* <TabTest /> */}
@@ -237,9 +239,14 @@ class App extends React.Component{
       })
     }
   }
+  _handleType=(e)=>{
+    this.setState({
+      value: e
+    })
+  }
   _handleReset=()=>{
     this.setState({
-      // value: null,
+      value: '',
       currentTab: 0,
       selection: null,
       blank: true,
@@ -257,6 +264,9 @@ class App extends React.Component{
     this.setState({
       currentTab: e
     })
+  }
+  _updateFocus=()=>{
+    this.newRef.current.focus();
   }
 }
 
