@@ -8,6 +8,12 @@
 	background-color: #e9ecef;
 }
 
+.buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .autoComplete {
 	width: 100%;
 	display: flex;
@@ -30,14 +36,6 @@ input {
 
 .lightText {
 	color: #e9ecef;
-}
-
-.theNavBar {
-	/* height: 10vh; */
-}
-
-.thePages {
-	/* height: 90vh; */
 }
 
 .inline-end {

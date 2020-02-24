@@ -3,6 +3,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 export default class Navbar extends React.Component {
     constructor(props){
@@ -23,8 +24,15 @@ export default class Navbar extends React.Component {
                     className="autoComplete" xs lg="5">
                         {this.props.children}
                     </Col>
-                    <Col xs lg="2">
-                        <h1 className="lightText">History</h1>
+                    <Col className="buttons" xs lg="3">
+                        <Row className="justify-content-md-center">
+                            <Col>
+                                <Button variant="success">Press f</Button>
+                            </Col>
+                            <Col>
+                                <Button variant="light">Simple</Button>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Container>
