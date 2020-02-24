@@ -59,6 +59,7 @@ class App extends React.Component{
             selection={this.state.selection}
             handleReset={this._handleReset}
             simpleToggle={this._simpleToggle}
+            isSimple={this.state.isSimple}
             >
               <Searchbar 
                 value={this.state.value}
@@ -108,7 +109,8 @@ class App extends React.Component{
     // Set the selection state; set the current tab to 0
     this.setState({
       selection: sel,
-      currentTab: 0
+      currentTab: 0,
+      isSimple: 0
     })
     this._getWikiPage(sel)
   }
@@ -147,22 +149,24 @@ class App extends React.Component{
     // If you don't get anything back, that page will have this not found stuff here
     if(data==='f'){
       if(index===0){
-        updatedArr[index] = [{
+        updatedArr = [{
         tab: ':\\',
-        section: 'There is no simple wiki page version of this page',
+        section: '<h1 class="justify-text-center">There is no simple wiki page version of this page</h1>',
         anchor: 'Not found'
-      }]
+        }]
       }
       if(index===1){
-        updatedArr[index] = [{
-          tab: ':\\',
+        updatedArr = [{
+          tab: '0',
           section: 'There is no wiki page version of this page',
           anchor: 'Not found'
         }]
-        this.setState({
-          bothWikis: [updatedArr]
-        })
       }
+          this.setState({
+            bothWikis: [updatedArr],
+            isSimple: this.state.isSimple===0 ? 1 : 0
+          })
+          return;
     }
      // 
     // The first section appears in the lead. Put it in sections first. 

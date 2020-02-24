@@ -14,6 +14,7 @@ export default class Navbar extends React.Component {
     }
      
     render() {
+        let simple = this.props.isSimple===0 ? 'Simple' : 'Standard';
         return (
             <Container className="theNavBar" >
                 <Row className="justify-content-md-center">
@@ -34,7 +35,7 @@ export default class Navbar extends React.Component {
                             <Col>
                                 <Button variant="light"
                                 onClick={(e)=>{this.props.simpleToggle(e)}}
-                                >Simple</Button>
+                                >{simple}</Button>
                             </Col>
                         </Row>
                     </Col>
