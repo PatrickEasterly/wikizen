@@ -19,7 +19,8 @@ export default class Navbar extends React.Component {
                     <Col xs lg="2">
                         <h1 className="lightText">WikiZen</h1>
                     </Col>
-                    <Col xs lg="5">
+                    <Col 
+                    className="autoComplete" xs lg="5">
                         {this.props.children}
                     </Col>
                     <Col xs lg="2">
