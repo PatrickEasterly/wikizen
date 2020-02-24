@@ -32,7 +32,6 @@ export default class Tabs extends React.Component {
                         <Button 
                             key={section.tab}
                             variant={selected}
-                            autofocus={autofocus}
                             id={section.tab}
                             onClick={(e)=>{
                                 this.props.handleTabSelect(e.target.id)}

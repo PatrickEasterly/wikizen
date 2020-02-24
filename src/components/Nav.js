@@ -26,9 +26,11 @@ export default class Navbar extends React.Component {
                     </Col>
                     <Col className="buttons" xs lg="3">
                         <Row className="justify-content-md-center">
-                            {/* <Col>
-                                <Button variant="success">Press f</Button>
-                            </Col> */}
+                            <Col>
+                                <Button 
+                                onClick={(e)=>{this.props.handleReset(e)}} 
+                                variant="success">Reset</Button>
+                            </Col>
                             <Col>
                                 <Button variant="light">Simple</Button>
                             </Col>

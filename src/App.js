@@ -44,6 +44,7 @@ class App extends React.Component{
             <Navbar 
             value={this.state.value}
             selection={this.state.selection}
+            handleReset={this._handleReset}
             >
               <Searchbar 
                 value={this.state.value}
@@ -166,6 +167,21 @@ class App extends React.Component{
         currentTab: current
       })
     }
+  }
+  _handleReset=()=>{
+    this.setState({
+      // value: null,
+      currentTab: 0,
+      selection: null,
+      blank: true,
+      sections: [
+        {
+          tab: '',
+          section: '',
+          anchor: ''
+        }
+      ]
+    })
   }
   _handleTabSelect=(e)=>{
     // console.log('clickd', e)
