@@ -32,7 +32,9 @@ export default class Navbar extends React.Component {
                                 variant="success">Reset</Button>
                             </Col>
                             <Col>
-                                <Button variant="light">Simple</Button>
+                                <Button variant="light"
+                                onClick={(e)=>{this.props.simpleToggle(e)}}
+                                >Simple</Button>
                             </Col>
                         </Row>
                     </Col>

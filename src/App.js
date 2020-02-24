@@ -20,6 +20,19 @@ class App extends React.Component{
       currentTab: 0,
       selection: null,
       blank: true,
+      isSimple: 0,
+      bothWikis: [
+        [{
+          tab: '',
+          section: '',
+          anchor: ''
+        }],
+        [{
+          tab: '',
+          section: '',
+          anchor: ''
+        }]
+      ],
       sections: [
         {
           tab: '',
@@ -45,6 +58,7 @@ class App extends React.Component{
             value={this.state.value}
             selection={this.state.selection}
             handleReset={this._handleReset}
+            simpleToggle={this._simpleToggle}
             >
               <Searchbar 
                 value={this.state.value}
@@ -72,6 +86,13 @@ class App extends React.Component{
       </div>
     );
   }
+  _simpleToggle=()=>{
+    const reversedSimple = this.state.isSimple===0 ? 1 : 0;
+    this.setState({
+      isSimple: reversedSimple,
+      sections: this.state.bothWikis[reversedSimple]
+    })
+  }
   _reBlank=()=>{
     this.setState({
       blank: true
@@ -96,22 +117,53 @@ class App extends React.Component{
     // replace all whitespace with _
     title = title.replace(/ /g, '_');
     
-    let data;
+    let enData;
+    let simpleData;
     // 
     // First, try the simple wiki page. If there is no simple wiki, get the regular wiki page.
     try {
-      data = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+      simpleData = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
     } catch(err) {
-      data = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
-
+      simpleData = 'f'
     }
-    this._modifyWikiData(data);
+    try {
+      enData = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
+
+    } catch(err) {
+      enData = 'f'
+    }
+    this._modifyWikiData(simpleData, 0);
+    this._modifyWikiData(enData, 1);
+    let choice = simpleData==='f' ? 1 : 0;
+    this._setSection(choice);
+
   }
-  _modifyWikiData(data) {
+  _modifyWikiData(data, index) {
     // 
     // give the sections a place to live
     let sectionArr = [];
+    let updatedArr = [...this.state.bothWikis];
+    // If you don't get anything back, that page will have this not found stuff here
+    if(data==='f'){
+      if(index===0){
+        updatedArr[index] = [{
+        tab: ':\\',
+        section: 'There is no simple wiki page version of this page',
+        anchor: 'Not found'
+      }]
+      }
+      if(index===1){
+        updatedArr[index] = [{
+          tab: ':\\',
+          section: 'There is no wiki page version of this page',
+          anchor: 'Not found'
+        }]
+        this.setState({
+          bothWikis: [updatedArr]
+        })
+      }
+    }
      // 
     // The first section appears in the lead. Put it in sections first. 
     let first = data.data.lead.sections[0];
@@ -143,8 +195,16 @@ class App extends React.Component{
     })
     // 
     // Add them to state
+    updatedArr[index] = [...sectionArr];
     this.setState({
-      sections: sectionArr
+      bothWikis: updatedArr,
+    })
+  }
+  _setSection=(oneOrTwo)=>{
+    this.setState({
+      sections: [
+        ...this.state.bothWikis[oneOrTwo]
+      ]
     })
   }
   _handleKeyPress=(event)=>{
