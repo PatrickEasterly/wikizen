@@ -34,7 +34,7 @@ class App extends React.Component{
   
     componentDidUpdate(){
         this.newRef.current.focus();
-        console.log('updated')
+        // console.log('updated')
     }
 
   render () {

@@ -126,8 +126,8 @@ getItemValue(item){
 
     render() {
         return (
-            <div>
                 <Autocomplete 
+                    className="justify-content-center"
                     getItemValue={this.getItemValue}
                     items={this.state.autocompleteData}
                     renderItem={this.renderItem}
@@ -136,7 +136,6 @@ getItemValue(item){
                     onSelect={this.onSelect}
                     ref={this.myRef}
                 />
-            </div>
         )
     }
 }

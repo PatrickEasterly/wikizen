@@ -1,8 +1,8 @@
 import React from 'react';
-import History from './History';
-import Nav from 'react-bootstrap/Nav';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 export default class Navbar extends React.Component {
     constructor(props){
@@ -14,15 +14,19 @@ export default class Navbar extends React.Component {
      
     render() {
         return (
-            // <div>
-            <Row className="theNavBar justify-content-center" /*style={{backgroundColor: 'blue'}}*/>
-                    <Col lg>
+            <Container className="theNavBar" >
+                <Row className="justify-content-md-center">
+                    <Col xs lg="2">
+                        <h1 className="lightText">WikiZen</h1>
+                    </Col>
+                    <Col xs lg="5">
                         {this.props.children}
                     </Col>
-                    <Col lg>
-                        <History />
+                    <Col xs lg="2">
+                        <h1 className="lightText">History</h1>
                     </Col>
                 </Row>
+            </Container>
         )
     }
 }
