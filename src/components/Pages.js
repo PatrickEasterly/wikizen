@@ -4,27 +4,16 @@ export default class Pages extends React.Component {
     // eslint-disable-next-line
     constructor(props) {
         super(props);
-        this.newRef = React.createRef();
-    }
-    componentDidUpdate(){
-        this.newRef.current.focus();
-        console.log('updated')
     }
 
     render() {
         return (
-            // <div>
-            //     {/*  */}
-            //     {/* Just shows all sections as one page */}
-            //     {/* {this.props.sections.map((section)=>{
-            //         return (<html dangerouslySetInnerHTML={{__html: ` ${section.anchor} \n${section.section}`}}  style={{backgroundColor: 'white'}}/>)
-            //     })} */}
-            //     {/*  */}
-
-            // </div>
             
-            <html tabIndex='0' ref={this.newRef} dangerouslySetInnerHTML={{__html: ` ${this.props.sections[this.props.currentTab].anchor} \n${this.props.sections[this.props.currentTab].section}`}}  style={{backgroundColor: 'white'}}/>
-            
+            <div>
+                <ul className="inline-end" tabIndex='0' ref={this.newRef}>
+                <html id="bootstrapno" dangerouslySetInnerHTML={{__html: ` <h1>${this.props.sections[this.props.currentTab].anchor.split('_').join(' ')}</h1> \n${this.props.sections[this.props.currentTab].section}`}} />
+            </ul>
+            </div>
 
         )
     }
