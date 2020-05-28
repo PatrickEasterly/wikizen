@@ -14,7 +14,7 @@ export default class Navbar extends React.Component {
     }
      
     render() {
-        let simple = this.props.isSimple===0 ? 'Standard' : 'Simple';
+        let simple = this.props.isSimple===0 ? 'See Standard' : 'See Simple';
         return (
             <Container className="theNavBar" >
                 <Row className="justify-content-md-center">
@@ -26,7 +26,7 @@ export default class Navbar extends React.Component {
                         {this.props.children}
                     </Col>
                     <Col className="buttons" xs lg="3">
-                        <Row className="justify-content-md-center">
+                        <Row className="justify-content-md-center align-items-center">
                             <Col>
                                 <Button 
                                 onClick={(e)=>{this.props.handleReset(e)}} 
@@ -34,6 +34,7 @@ export default class Navbar extends React.Component {
                             </Col>
                             <Col>
                                 <Button variant="light"
+                                style={{width: "150px"}}
                                 onClick={(e)=>{this.props.simpleToggle(e)}}
                                 >{simple}</Button>
                             </Col>

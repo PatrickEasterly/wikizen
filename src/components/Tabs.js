@@ -21,7 +21,7 @@ export default class Tabs extends React.Component {
                     <h3 className="justify-content-center">
                         Enter a search term to see the wikipedia page. 
                         <br/>
-                        Click the Simple/Standard button to toggle between the simple version and the standard version of the page.
+                        Click the "See Simple/See Standard" button to toggle between the simple version and the standard version of the page.
                     </h3>
                 </div>
 
