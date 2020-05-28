@@ -7,6 +7,7 @@ import Navbar from './components/Nav';
 import Searchbar from './components/Searchbar';
 import Tabs from './components/Tabs';
 import Pages from './components/Pages';
+
 // import TabTest from './components/TabTest'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -44,16 +45,10 @@ class App extends React.Component{
     this.newRef = React.createRef();
     
   }
-  
-    // componentDidUpdate(){
-    //     // console.log('updated')
-    // }
-    
 
   render () {
     return (
       <div className="App" onKeyDown={this._handleKeyPress} tabIndex="0" ref={this.newRef}>
-        {/* <div className="App-header"> */}
             <Navbar 
             value={this.state.value}
             selection={this.state.selection}
@@ -70,7 +65,6 @@ class App extends React.Component{
                 handleType={this._handleType}
               />
             </Navbar>
-            {/* <TabTest /> */}
             <PageContainer 
               sections={this.state.sections}
             >
@@ -85,7 +79,6 @@ class App extends React.Component{
                 currentTab={this.state.currentTab}
               />
             </PageContainer>
-        {/* </div> */}
       </div>
     );
   }
@@ -129,12 +122,14 @@ class App extends React.Component{
       simpleData = await axios.get(`https://simple.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
     } catch(err) {
+      // fix me
       simpleData = 'f'
     }
     try {
       enData = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`);
 
     } catch(err) {
+      // fix me
       enData = 'f'
     }
     this._modifyWikiData(simpleData, 0);
