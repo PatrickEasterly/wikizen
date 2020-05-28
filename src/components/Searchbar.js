@@ -65,6 +65,7 @@ retrieveDataAsynchronously(searchText) {
 */
 
 onChange(e){
+    this.props.handleType(e.target.value);
     this.setState({
         value: e.target.value
     });
@@ -87,7 +88,9 @@ onChange(e){
  */
 
 onSelect(val) {
+    this.props.updateFocus();
     this.props.selectDropDown(val);
+    this.props.unBlank();
     this.setState({
         value: val
     });
@@ -125,8 +128,8 @@ getItemValue(item){
 
     render() {
         return (
-            <div>
                 <Autocomplete 
+                    
                     getItemValue={this.getItemValue}
                     items={this.state.autocompleteData}
                     renderItem={this.renderItem}
@@ -135,7 +138,6 @@ getItemValue(item){
                     onSelect={this.onSelect}
                     ref={this.myRef}
                 />
-            </div>
         )
     }
 }

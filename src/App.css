@@ -1,5 +1,54 @@
+#bootstrapno {
+	padding: 5vh 5vh;
+}
+#bootstrapno h1 {
+	text-align: center;
+}
+#bootstrapno body {
+	background-color: #e9ecef;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.autoComplete {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.autoComplete > div {
+	width: 100%;
+	height: 100%;
+	display: flex !important; 
+	align-items: center;
+	justify-content: center;
+}
+
+input {
+	height: 80%;
+	width: 80%;
+}
+
+.lightText {
+	color: #e9ecef;
+}
+
+.inline-end {
+	padding-inline-end: 40px;
+	overflow: hidden;
+}
+
 .App {
+	min-height: 100vh;
+	background-color: #282c34;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -7,14 +56,7 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,9 +74,24 @@
   color: black
 }
 .tabs {
+  padding-inline-end: 40px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
+
+.tabs * {
+	margin: 2px;
+}
+
+.tabContain {
+	padding-top: 5px;
+	/* width: 80%; */
+	/* overflow: auto; */
+}
+
+
 .tabs li {
   outline: 1px solid white;
   padding: 1px;
